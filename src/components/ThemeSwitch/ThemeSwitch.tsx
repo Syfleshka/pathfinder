@@ -2,37 +2,23 @@ import './ThemeSwitch.scss'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import DetectTheme from './DetectTheme'
+import { useDispatch } from 'react-redux'
+import { useTypedSelector } from '../../hooks/useTypedSelector'
+import { setTheme } from '../../redux/actions/theme'
 
 function ThemeSwitch() {
-
-  const applyTheme = ():string => {
-    if (localStorage.hasOwnProperty('theme')) {
-      return localStorage.theme === 'dark' ? 'dark' : 'light'
-    } else {
-      localStorage.setItem('theme', DetectTheme())
-      return localStorage.theme
-    }
-  }
-
-  const [theme, setTheme] = useState(applyTheme)
+  const theme = useTypedSelector((store) => store?.theme || '')
+  const dispatch = useDispatch()
 
   const [isHovered, setIsHovered] = useState(false)
 
   const switchTheme = () => {
-    const switchThemeAction = (themeType: string) => {
-      setTheme(themeType)
-      localStorage.setItem('theme', themeType)
-    }
-    theme === 'dark' ? switchThemeAction('light') : switchThemeAction('dark')
+    theme === 'dark' ? dispatch(setTheme('light')) : dispatch(setTheme('dark'))
   }
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.body.classList.add('dark')
-    } else {
-      document.body.classList.remove('dark')
-    }
+    document.body.classList.remove('dark', 'light')
+    document.body.classList.add(theme)
   }, [theme])
 
   return (
