@@ -1,0 +1,13 @@
+@import 'mixins';
+
+body {
+  background-color: $lt-bg;
+  color: $lt-text;
+  font-family: 'JetBrains Mono', monospace;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+body.dark {
+  background-color: $dt-bg;
+  color: $dt-text;
+}

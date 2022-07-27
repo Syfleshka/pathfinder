@@ -1,0 +1,62 @@
+@import '../../mixins';
+
+.theme-switch-wrapper {
+  border: none;
+  margin: 8px;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.theme-switch {
+  @include font('h4');
+
+  position: relative;
+  display: inline-block;
+  user-select: none;
+  background: $lt-btn;
+  padding: 8px;
+  border-radius: 50%;
+  line-height: 0 !important;
+  border: none;
+  color: $lt-text;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 $lt-btn;
+  transition: top 0.2s, left 0.2s, box-shadow 0.2s;
+}
+
+.dark .theme-switch {
+  color: $dt-text;
+  background: $dt-btn;
+  box-shadow: 0 0 0 $dt-btn;
+}
+
+.theme-switch-wrapper:hover > .theme-switch {
+  top: -2px;
+  left: -2px;
+  box-shadow: 2px 2px 0 $dt-btn;
+}
+
+.theme-switch-wrapper:active > .theme-switch {
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 $lt-btn;
+}
+
+.dark .theme-switch-wrapper:hover > .theme-switch {
+  box-shadow: 2px 2px 0 $lt-btn;
+}
+
+.dark .theme-switch-wrapper:active > .theme-switch {
+  box-shadow: 0 0 0 $dt-btn;
+}
+
+.stop-animation {
+  transition: all 0.2s;
+}
+
+.fa-beat-scale {
+  --fa-beat-scale: 0.9;
+}

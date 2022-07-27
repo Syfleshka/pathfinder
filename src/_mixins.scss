@@ -1,0 +1,151 @@
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+// ----
+// Color Theme
+// ----
+
+$smoky-black: rgb(18 19 15 / 100%);
+$pine-tree: #36392d;
+$platinum: rgb(234 230 229 / 100%);
+$pale-silver: #c8c0bc;
+$illuminating-emerald: rgb(91 146 121 / 100%);
+$eton-blue: rgb(143 203 155 / 100%);
+$fiery-rose: rgb(255 89 100 / 100%);
+$fiery-rose-2: rgb(255 104 114 / 100%);
+$dt-bg: $smoky-black;
+$dt-text: $platinum;
+$lt-bg: $platinum;
+$lt-text: $smoky-black;
+$dt-btn: $pine-tree;
+$lt-btn: $pale-silver;
+
+// ----
+// Fonts
+// ----
+
+@mixin font($size) {
+  @if $size == 'h1' {
+    font-size: 44px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 60px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 76px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'h2' {
+    font-size: 32px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 48px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 60px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'h3' {
+    font-size: 28px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 32px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 48px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'h4' {
+    font-size: 24px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 24px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 32px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'h5' {
+    font-size: 20px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 20px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 24px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'h6' {
+    font-size: 16px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 16px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 20px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'text' {
+    font-size: 14px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 14px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 16px;
+      line-height: 1.2em;
+    }
+  } @else if $size == 'footer' {
+    font-size: 12px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 12px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 14px;
+      line-height: 1.2em;
+    }
+  } @else {
+    font-size: 14px;
+    line-height: 1.2em;
+    @include for-tablet-portrait-up {
+      font-size: 14px;
+      line-height: 1.2em;
+    }
+    @include for-desktop-up {
+      font-size: 16px;
+      line-height: 1.2em;
+    }
+  }
+}
