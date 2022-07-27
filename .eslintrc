@@ -21,6 +21,9 @@
         "args": "none"
       }
     ],
+    "@typescript-eslint/default-param-last" : [
+      "off"
+    ],
     "@typescript-eslint/semi": [
       "off"
     ],
