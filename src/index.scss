@@ -5,9 +5,24 @@ body {
   color: $lt-text;
   font-family: 'JetBrains Mono', monospace;
   transition: background-color 0.2s, color 0.2s;
+  min-height: calc(100vh - 100px);
+  width: 100%;
+  @include for-tablet-landscape-up {
+    min-height: 100vh;
+  }
 }
 
 body.dark {
   background-color: $dt-bg;
   color: $dt-text;
+}
+
+#root {
+  min-height: calc(100vh - 100px);
+  @include for-tablet-landscape-up {
+    min-height: 100vh;
+  }
+
+  display: flex;
+  flex-direction: column;
 }
