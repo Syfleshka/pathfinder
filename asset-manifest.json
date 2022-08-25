@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pathfinder/static/css/main.7b174a34.css",
+    "main.js": "/pathfinder/static/js/main.9f8ed11b.js",
+    "index.html": "/pathfinder/index.html",
+    "main.7b174a34.css.map": "/pathfinder/static/css/main.7b174a34.css.map",
+    "main.9f8ed11b.js.map": "/pathfinder/static/js/main.9f8ed11b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b174a34.css",
+    "static/js/main.9f8ed11b.js"
+  ]
+}
