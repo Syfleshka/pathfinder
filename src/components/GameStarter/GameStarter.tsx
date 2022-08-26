@@ -14,12 +14,7 @@ function GameStarter() {
   const startGame = () => {
     dispatch(setStartPosition(grid))
   }
-  useEffect(() => {
-    if (startPosition?.row < 1 || startPosition?.column < 1) {
-      console.log(startPosition?.row, startPosition?.column < 1)
-      dispatch(setStartPosition(grid))
-    }
-  }, [dispatch, grid, startPosition?.column, startPosition?.row])
+
   useEffect(() => {
     dispatch(setPath({ grid, turns, startPosition }))
   }, [dispatch, grid, startPosition, turns])

@@ -4,6 +4,7 @@ import { setGrid } from '../../redux/actions/grid'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { setTurns } from '../../redux/actions/turns'
 import { setStartPosition } from '../../redux/actions/startPosition'
+import OptInput from '../OptInput/OptInput'
 
 function GridEditor() {
   const dispatch = useDispatch()
@@ -34,84 +35,64 @@ function GridEditor() {
   }
 
   const isDisabled = () => {
-    return grid?.rows === gridData.rows &&
+    return (
+      grid?.rows === gridData.rows &&
       grid?.columns === gridData?.columns &&
-      turns === turnsData;
-
+      turns === turnsData
+    )
   }
 
   return (
     <form className="form" onSubmit={(event) => buildGrid(event)}>
+      <h1 className="h1">Options:</h1>
       <div className="inputs">
-        <select
-          className="input"
-          name="columns"
+        <OptInput
           id="columns"
-          defaultValue={gridData.columns}
+          name="columns"
+          min={2}
+          max={9}
+          label="cols"
+          value={gridData?.columns}
           onChange={(e) => handleColumns(e)}
-          required
-        >
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-        </select>
-        <label htmlFor="columns">cols</label>
+        />
         <span className="x">x</span>
-        <select
-          className="input"
-          name="rows"
+        <OptInput
           id="rows"
-          defaultValue={gridData.rows}
+          name="rows"
+          min={2}
+          max={9}
+          label="rows"
+          value={gridData?.rows}
           onChange={(e) => handleRows(e)}
-          required
-        >
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-        </select>
-        <label htmlFor="rows">rows</label>
+        />
       </div>
       <div className="inputs">
-        <select
-          className="input"
-          name="turns"
+        <OptInput
           id="turns"
-          defaultValue={turnsData}
+          name="turns"
+          min={3}
+          max={9}
+          label="turns"
+          value={turns}
           onChange={(e) => handleTurns(e)}
-          required
-        >
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={4}>4</option>
-          <option value={5}>5</option>
-          <option value={6}>6</option>
-          <option value={7}>7</option>
-          <option value={8}>8</option>
-          <option value={9}>9</option>
-        </select>
-        <label htmlFor="turns">turns</label>
+        />
       </div>
       <div className="btn-link">
         <button className="btn" type="submit" disabled={isDisabled()}>
           <div>Apply</div>
         </button>
       </div>
-      <p className="center">
+      <p className="small">
         Current setup: <br />
         {grid?.columns} columns <br />
         {grid?.rows} rows <br />
         {turns} turns
       </p>
+      <h4 className="h4">How to play:</h4>
+      <ul className="small">
+        <li>Green text in table is your start position</li>
+        <li>You must find end position cell by following the steps</li>
+      </ul>
     </form>
   )
 }

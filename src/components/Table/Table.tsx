@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { StartPositionPayload } from '../../redux/types/startPosition'
+import { incrementLoseStats, incrementWinStats } from '../../redux/actions/stats'
+import { useDispatch } from 'react-redux'
 
 function Table() {
+  const dispatch = useDispatch()
+
   const [isGameEnded, setIsGameEnded] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState({
     column: 0,
@@ -62,7 +66,24 @@ function Table() {
     }
   }
 
-  useEffect(() => {}, [rightAnswer])
+  const showPopup = () => {
+    console.log('Is game ended', isGameEnded)
+    let popup = ''
+    if (isGameEnded) {
+      if (
+        selectedAnswer.row === rightAnswer.row &&
+        selectedAnswer.column === rightAnswer.column
+      ) {
+        popup = 'You win!'
+        dispatch(incrementWinStats())
+      } else {
+        popup = 'You lose!'
+        dispatch(incrementLoseStats())
+      }
+    }
+    return popup
+  }
+  const popup = showPopup()
 
   useEffect(() => {
     setIsGameEnded(false)
@@ -102,7 +123,16 @@ function Table() {
     ]
   }
 
-  return <div className="grid">{generateTable(grid.rows, grid.columns)}</div>
+  console.log('render')
+
+  return (
+      <div className="grid">
+        {generateTable(grid.rows, grid.columns)}
+        {popup ? (
+          <div className="grid-popup">{popup}</div>
+        ) : null}
+      </div>
+  )
 }
 
 export default Table

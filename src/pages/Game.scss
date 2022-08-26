@@ -5,8 +5,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   padding: 24px 0 60px;
+  align-items: flex-start;
   @include for-tablet-landscape-up {
     flex-direction: row;
   }
@@ -17,7 +18,6 @@
   max-width: 600px;
   @include for-tablet-landscape-up {
     max-width: initial;
-    margin-bottom: 0;
   }
 
   display: flex;
@@ -43,6 +43,7 @@
 }
 
 .grid {
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 600px;
@@ -127,6 +128,36 @@
   padding: 0;
 }
 
+.grid-popup {
+  position: absolute;
+  background: $pale-silver;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeInOut 3s 1;
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+.dark .grid-popup {
+  background: $pine-tree;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -142,6 +173,7 @@
   border: none;
   cursor: pointer;
   transition: color 0.2s;
+  border-bottom: 1px solid $lt-text;
   @include font('h1');
 
   max-width: 44px;
@@ -155,6 +187,9 @@
   text-align: right;
   color: $lt-text;
 }
+.input option {
+  @include font('h4');
+}
 
 .input:hover {
   color: $illuminating-emerald;
@@ -162,6 +197,7 @@
 
 .dark .input {
   color: $dt-text;
+  border-bottom: 1px solid $dt-text;
 }
 
 .dark .input:hover {
@@ -188,10 +224,10 @@
   cursor: pointer;
   background: none;
   border: none;
+  @include font('h4');
 }
 
 .btn > div {
-  @include font('h4');
 
   position: relative;
   display: inline-block;
@@ -245,7 +281,7 @@
 }
 
 .margin-top {
-  margin-top: 60px;
+  margin-top: 24px;
 }
 
 .scroll-link {
@@ -291,4 +327,19 @@
 .dark .step {
   background-color: $pine-tree;
   color: $dt-text;
+}
+
+.small {
+  @include font('p');
+}
+.h4 {
+  margin-bottom: 8px;
+}
+
+.game-stats {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin-top: 24px;
+  align-items: center;
 }
