@@ -78,12 +78,13 @@
   align-content: center;
   justify-content: center;
   text-align: center;
+
   @include for-tablet-portrait-up {
     width: 54px;
     height: 54px;
   }
 
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color .2s;
 }
 
 .column:hover {
