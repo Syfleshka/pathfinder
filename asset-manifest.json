@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pathfinder/static/css/main.993de1b3.css",
+    "main.css": "/pathfinder/static/css/main.7c7a0dbb.css",
     "main.js": "/pathfinder/static/js/main.0f2348a7.js",
     "index.html": "/pathfinder/index.html",
-    "main.993de1b3.css.map": "/pathfinder/static/css/main.993de1b3.css.map",
+    "main.7c7a0dbb.css.map": "/pathfinder/static/css/main.7c7a0dbb.css.map",
     "main.0f2348a7.js.map": "/pathfinder/static/js/main.0f2348a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.993de1b3.css",
+    "static/css/main.7c7a0dbb.css",
     "static/js/main.0f2348a7.js"
   ]
 }
