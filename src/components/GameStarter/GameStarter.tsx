@@ -3,6 +3,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector'
 import { setStartPosition } from '../../redux/actions/startPosition'
 import { useDispatch } from 'react-redux'
 import { setPath } from '../../redux/actions/path'
+import { setGameStatus } from '../../redux/actions/gameStatus'
 
 function GameStarter() {
   const dispatch = useDispatch()
@@ -12,7 +13,9 @@ function GameStarter() {
   const startPosition = useTypedSelector((store) => store?.startPosition)
 
   const startGame = () => {
+    dispatch(setGameStatus(false))
     dispatch(setStartPosition(grid))
+
   }
 
   useEffect(() => {

@@ -5,6 +5,7 @@ import turns from './turns'
 import startPosition from './startPosition'
 import path from './path'
 import stats from './stats'
+import gameStatus from './gameStatus'
 
 const reducer = combineReducers({
   theme,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   turns,
   startPosition,
   path,
-  stats
+  stats,
+  gameStatus
 })
 
 export default reducer
