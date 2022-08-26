@@ -16,7 +16,6 @@ function Game() {
     column: 0,
     row: 0,
   })
-  const grid = useTypedSelector((store) => store?.grid)
   const startPosition = useTypedSelector((store) => store?.startPosition)
   const path = useTypedSelector((store) => store?.path)
   const gameStatus = useTypedSelector((store) => store?.gameStatus)
@@ -28,13 +27,13 @@ function Game() {
     setSelectedAnswer((prevValue) => ({ ...prevValue, column: 0, row: 0 }))
   }, [startPosition, path, dispatch])
 
-  console.log('render gameStatus', gameStatus)
-  console.log('render selectedAnswer', selectedAnswer)
-  console.log('render rightAnswer', rightAnswer)
-  console.log('render grid', grid)
-  console.log('render startPosition', startPosition)
-  console.log('render path', path)
-  console.log('____________________________________')
+  // console.log('render gameStatus', gameStatus)
+  // console.log('render selectedAnswer', selectedAnswer)
+  // console.log('render rightAnswer', rightAnswer)
+  // console.log('render grid', grid)
+  // console.log('render startPosition', startPosition)
+  // console.log('render path', path)
+  // console.log('____________________________________')
 
   return (
     <div className="grid-holder">
